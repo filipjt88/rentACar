@@ -115,7 +115,7 @@
                     <div class="col-lg-5">
                         <div class="book-a-car">
                             <form action="index1.php" method="GET"> 
-                            <input type="hidden" name="action" value="book" id = "book">
+                            <input type="hidden" name="action" value="checkCar" id = "book">
                                 <!--== Pick Up Location ==-->
                                 <div class="pickup-location book-item">
                                     <h4>Mesto preuzimanja:</h4>
@@ -138,7 +138,7 @@
                                         <input type="datetime-local" id="endDate" name= "endDate" placeholder="Datum vraćanja" />
                                     </div>
                                 </div>
-                                <!--== Pick Up Location ==-->
+                                <!--== Pick Up Location ==
                                 <div class="return-car">
                                         <h4>Unesite vasu e-mail adresu:</h4>
                                         <input type="email" id="email" name = "email" placeholder="Email.." />
@@ -148,16 +148,17 @@
                                         <h4>Unesite vas broj telefona:</h4>
                                         <input type="text" id="telefon" name = "phone" placeholder="Telefon.." />
                                     </div>
+                                    -->
                                 <!--== Car Choose ==-->
                                 <div class="choose-car-type book-item">
                                     <h4>Izaberite model automobila:</h4>
-                                    <select class="custom-select" name="type">
+                                    <select class="custom-select" name="type" required>
                                         <option>Izaberi auto...</option>
                                       <?php                                      
                                         $controller = new Controller();
                                         $cars = $controller->getAllAutomobili();
                                         foreach($cars as $car) {
-                                            echo "<option value='".$car['id_automobil']."'>" . $car['marka'] . "</option>"; 
+                                            echo "<option value='".$car['id_automobil']."'>" . $car['marka'] . " r</option>"; 
                                         }
                                       ?>
                                     </select>
@@ -165,7 +166,9 @@
                                 <!--== Car Choose ==-->
 
                                 <div class="book-button text-center">
-                                    <input type="submit" name="submit" value="Rezervisi" class="book-now-btn">
+
+                                    <button class="btn_reserve book-now-btn" type="button" data-toggle="modal" data-target="#myModal" ><a >Rezervišite Auto</a></button>
+                                    <input type="submit" name="submit" value="Proverite dostupnost vozila" class="book-now-btn">
                                 </div>
                                 <?php
                                     if(isset($_GET['msg']))
@@ -221,7 +224,7 @@
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi aliquid debitis optio praesentium, voluptate repellat accusantium deserunt eius.</p>
                                 <div class="about-btn">
-                                    <a href="#">Rezervišite Auto</a>
+                                    <button class="btn_reserve" type="button" data-toggle="modal" data-target="#myModal"><a >Rezervišite Auto</a></button>
                                     <a href="#">Kontaktirajte Nas</a>
                                 </div>
                             </div>
@@ -954,6 +957,97 @@
             </div>
         </div>
     </section>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="  modal_style">
+  <div class="container">
+  <div class="row">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <h4 class="modal-title">Rezerviši automobil</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+      <div class="col-md-6">
+        <p>Rezervišite automobil</p>
+    <form method = "GET" action = "index1.php">
+        <input type="hidden" name = "action" value = "book">
+    <div class="form-group">
+        <select type = "text" name = "automobili" autocomplete="off" style="height:50px;" class = "form-control" required>
+        <?php                           
+       $controller = new Controller();
+       $cars = $controller->getAllAutomobili();
+       foreach($cars as $car) {
+           echo "<option value='".$car['id_automobil']."'>" . $car['marka'] . "</option>"; 
+       }
+       
+     ?>
+   </select><br>
+    </div>
+   <div class = "form-group">
+   <label>Mesto preuzimanja - Unesite lokaciju gde bi preuzeli i vratili vozilo</label>
+   <input type="text" name = "mesto_preuzimanja" class = "form-control" value="Beograd Airport">
+    </div>
+    <div class = "form-group">
+   <label>Mesto vracanja</label>
+   <input type="text" name = "mesto_vracanja" class = "form-control" value="Beograd Airport">
+    </div>
+    <div class = "form-group">
+   <label>Datum preuzimanja</label>
+   <input type="datetime-local" name = "datum_preuzimanja" class = "form-control">
+    </div>
+    <div class = "form-group">
+   <label>Datum vracanja</label>
+   <input type="datetime-local"name = "datum_vracanja" class = "form-control">
+    </div>
+
+<div class = "form-group">
+   <label>Dodatna oprema</label><br>
+   <input type="checkbox"  name = "gear[]" value="GPS navigacija">GPS navigacija<br>
+   <input type="checkbox"  name = "gear[]" value=" WI-FI 4G mobilni ruter" >WI-FI 4G mobilni ruter<br>
+   <input type="checkbox"  name = "gear[]" value = "full osiguranje">Full osiguranje<br>
+   <input type="checkbox"  name = "gear[]" value = "sedista za decu">Sedista za decu,kolevke,busteri<br>
+   <input type="checkbox"  name = "gear[]" value = "dodatni vozac">Dodatni vozac<br>
+   <input type="checkbox"  name = "gear[]"  value = "krovni kofer">Krovni kofer<br>
+   <input type="checkbox"  name = "gear[]" value = "zeleni karton">Zeleni karton/napustanje Srbije<br>
+</div>
+    
+    </div>
+    <div class="col-md-6"> 
+    <div class = "form-group">
+   <label>Kontakt informacija</label>
+   <input type="text"  name = "ime"     placeholder=" **ime" class = "form-control" required><br>
+   <input type="text"  name = "prezime" placeholder=" **prezime" class = "form-control" required><br>
+   <input type="tel"   name = "telefon" placeholder=" **telefon" class = "form-control" required><br>
+   <input type="email" name = "email"   placeholder=" **Email" class = "form-control" required><br>
+   <textarea           name = "komentar" cols="50" rows="10" placeholder="unesite vas komentar"></textarea>
+   <input type = "checkbox" name = "uslovi_koriscenja" value = "prihvatam uslove koriscenja" required>Prihvatam <a href="uslovi.php" target="_blank">uslove koriscenja</a>
+    </div>
+    <div class="book-button text-center">
+    <input type="submit" name="submit" value="Rezervisi" class="btn_form">
+
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+      </div>
+    </div>
+
+  </div>
+</div>
+
     <?php
 
 require ('PARTS/footer.php');
@@ -986,7 +1080,7 @@ require ('PARTS/footer.php');
     <!--== Footer Area Start ==-->
     
     <!--== Scroll Top Area End ==-->
-
+   
     <!--=======================Javascript============================-->
     <!--=== Jquery Min Js ===-->
     <script src="assets/js/jquery-3.2.1.min.js"></script>

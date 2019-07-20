@@ -2,9 +2,9 @@
 //Poruka o dostupnosti automobila(da li je slobodan ili ne)
 
 //Ako je automobil dostupan da se iznajmi posalji email u drugom slucaju nemoj da slajes email
-if($result == "yes"){ 
+if($result == "yes" || $insert == 'bezProvere'){ 
 $to = "filip88ks@gmail.com";
-$subject = "Rezervacija automobila preko web sajta";
+$subject = "Rezervacija automobila preko Mondial rent a car";
 
 $message = "
 <html>
@@ -12,23 +12,33 @@ $message = "
 <title>Rezervacija automobila</title>
 </head>
 <body>
-    <p>Rezervacija automobila za korisnika $email</p>
+    <p>Rezervacija automobila za korisnika $ime</p>
     <table>
     <tr>
-        <th>Lokacija preuzimanja</th>
+        <th>Mesto preuzimanja</th>
+        <th>Mesto vracanja</th>
         <th>Datum preuzimanja</th>
         <th>Datum vracanja</th>
+        <th>Dodatna oprema</th>
+        <th>Ime</th>
+        <th>Prezime</th>
         <th>Email</th>
         <th>Telefon</th>
         <th>Automobil</th>
+        <th>Komentar</th>
     </tr>
     <tr>
-        <td>$location</td>
-        <td>$startDate</td>
-        <td>$endDate</td>
+        <td>$mesto_preuzimanja</td>
+        <td>$mesto_vracanja</td>
+        <td>$datum_preuzimanja</td>
+        <td>$datum_vracanja</td>
+        <td>$allGear</td>
+        <td>$ime</td>
+        <td>$prezime</td>
         <td>$email</td>
-        <td>$phone</td>
-        <td>$type</td>
+        <td>$telefon</td>
+        <td>$id_auto</td>
+        <td>$komentar</td>
     </tr>
 
     </table>

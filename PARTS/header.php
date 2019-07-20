@@ -43,7 +43,7 @@
                         <div class="header-social-icons">
                             <a href="https://www.facebook.com/mondialrentacarbg/" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="https://www.instagram.com/mondialrentacarbelgrade/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
-                            
+                            <a href = "login.php"> Dashboard</a>
                         </div>
                     </div>
                     <!--== Social Icons End ==-->
