@@ -158,7 +158,7 @@
                                         $controller = new Controller();
                                         $cars = $controller->getAllAutomobili();
                                         foreach($cars as $car) {
-                                            echo "<option value='".$car['id_automobil']."'>" . $car['marka'] . " r</option>"; 
+                                            echo "<option value='".$car['id_automobil']."'>" . $car['marka'] . " </option>"; 
                                         }
                                       ?>
                                     </select>
@@ -224,7 +224,7 @@
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi aliquid debitis optio praesentium, voluptate repellat accusantium deserunt eius.</p>
                                 <div class="about-btn">
-                                    <button class="btn_reserve" type="button" data-toggle="modal" data-target="#myModal"><a >Rezervišite Auto</a></button>
+                                    <button class="btn_reserve" type="button" data-toggle="modal" data-target="#myModal" ><a >Rezervišite Auto</a></button>
                                     <a href="#">Kontaktirajte Nas</a>
                                 </div>
                             </div>
@@ -518,208 +518,49 @@
 
                                     <!-- PopularCars Tab Content Start -->
                                     <div class="row popular-car-gird">
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 hat">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/Opel_Vivaro.jpg">
-                                                      <img src="assets/img/car/Opel_Vivaro.jpg" alt="Opel Vivaro  BITURBO LONG">
-                                                   </a>
-                                                </div>
+                                       
+                                        <?php
+                                            $controller = new Controller();
+                                            $cars  = $controller->getAllAutomobili();
+                                            foreach($cars as $car){
+                                                echo " <div class='col-lg-4 col-md-6 sedan'>";
+                                                echo " <div class='single-popular-car'>";
+                                                echo "<div class='p-car-thumbnails'>";
+                                                    echo " <a class='car-hover' href='uploads/" . $car['slika'] . "' style='height: 219px;'>";
+                                                        echo "<img src='uploads/" . $car['slika'] . "' alt='bmwfdsf x3'>";
+                                
+                                                    echo "</a>";
+                                                echo "</div>";
 
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">Opel Vivaro BITURBO LONG</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 55e/day</span>
-                                                    </h3>
+                                                echo "<div class='p-car-content'>";
+                                                echo "<h3>";
+                                                echo "<a href='#'>".$car['marka']."</a>";
+                                                echo "<span class='price'><i class='fa fa-tag'></i> " . $car['cena_3']."e/dan</span>";
+                                                echo "</h3>";
+                                                echo "<h5> ".$car['tip_automobila']."</h5>";
+                                                echo "<h5> 30+ dana ".$car['cena_30']."E</h5>";
+                                                echo "<h5>16-30 dana " . $car['cena_16'] . "e</h5>";
+                                                echo "<h5>3-7 dana " . $car['cena_3'] . "e</h5>";
 
-                                                    <h5>Putnički Kombi</h5>
-                                                    <h5>30+ dana 550e</h5>
-                                                    <h5>16-30 dana 180e</h5>
-                                                    <h5>3-7 dana 50e</h5>
-
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp4</a>
-                                                        <a><i class="fa fa-users sets"></i>9</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbspDizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <br>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> Manuelni</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
-
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 sedan">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/bmw_x3.jpg" style="height: 219px;">
-                                                      <img src="assets/img/car/bmw_x3.jpg" alt="bmw x3">
-                                                   </a>
-                                                </div>
-
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">BMW X3 Xdrive</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 55e/dan</span>
-                                                    </h3>
-
-                                                    <h5>Džip/SUV</h5>
-                                                    <h5>30+ dana 550e</h5>
-                                                    <h5>16-30 dana 180e</h5>
-                                                    <h5>3-7 dana 50e</h5>
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp 4/5</a>
-                                                        <a><i class="fa fa-users sets"></i>5</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbsp Dizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> AUTOMATSKI</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
-
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 sedan ">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/zafira.jpg" style="height: 219px;">
-                                                      <img src="assets/img/car/zafira.jpg" alt="zafira">
-                                                   </a>
-                                                </div>
-
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">Opel Zafira</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 55e/dan</span>
-                                                    </h3>
-
-                                                    <h5>MINI VAN</h5>
-                                                    <h5>30+ dana 550e</h5>
-                                                    <h5>16-30 dana 180e</h5>
-                                                    <h5>3-7 dana 50e</h5>
-
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp4/5</a>
-                                                        <a><i class="fa fa-users sets"></i>7</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbspDizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <br>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> Manuelni</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
-
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 mpv ">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/polo.jpg" style="height:219px;">
-                                                      <img src="assets/img/car/polo.jpg" alt="Volkswagen Polo">
-                                                   </a>
-                                                </div>
-
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">Volkswagen Polo</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 55e/dan</span>
-                                                    </h3>
-
-                                                    <h5>Hackback</h5>
-                                                    <h5>30+ dana 550e</h5>
-                                                    <h5>16-30 dana 180e</h5>
-                                                    <h5>3-7 dana 50e</h5>
-
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp4/5</a>
-                                                        <a><i class="fa fa-users sets"></i>5</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbspDizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <br>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> Manuelni</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
-
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 con sedan hat mpv">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/audi_a3.png">
-                                                      <img src="assets/img/car/audi_a3.png" alt="more">
-                                                   </a>
-                                                </div>
-
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">Audi A3</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 65e/dan</span>
-                                                    </h3>
-
-                                                    <h5>Limuzina</h5>
-                                                    <h5>30+dana 650e</h5>
-                                                    <h5>15-30dana 250e</h5>
-                                                    <h5>3-7dana 50e</h5>
-
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp 4/5</a>
-                                                        <a><i class="fa fa-users sets"></i>5</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbspDizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <br>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> Manuelni</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
-
-                                        <!-- Single Popular Car Start -->
-                                        <div class="col-lg-4 col-md-6 hat suv mpv">
-                                            <div class="single-popular-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="assets/img/car/mer_c.png">
-                                                      <img src="assets/img/car/mer_c.png" alt="More coming soon">
-                                                   </a>
-                                                </div>
-
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="#">Mercedes-Benz C200</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> 75e/dan</span>
-                                                    </h3>
-
-                                                    <h5>Limuzina</h5>
-                                                    <h5>30+dana 750e</h5>
-                                                    <h5>15-30dana 350e</h5>
-                                                    <h5>3-7dana 90e</h5>
-
-                                                    <div class="p-car-feature">
-                                                        <a><img src="assets/img/car/car_door.png" class="car-door" style="width:20px; height:20px;">&nbsp &nbsp 4/5</a>
-                                                        <a><i class="fa fa-users sets"></i>5</a>
-                                                        <a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbspDizel</a> 
-                                                       
-                                                        <a href="#">Klima <i class="fa fa-check-circle"></i></a>
-                                                        <br>
-                                                        <a href="#"><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'> Manuelni</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- Single Popular Car End -->
+                                                echo "<div class='p-car-feature'>";
+                                                echo "<a><img src='assets/img/car/car_door.png' class='car-door' style='width:20px; height:20px;'>&nbsp &nbsp " .$car['broj_vrata'] . "</a>";
+                                                echo "<a><i class='fa fa-users sets'></i>5</a>";
+                                                echo "<a><img src='assets/img/car/pump.jpg' alt = 'dizel' style = 'width:18px;height:15px;'>&nbsp &nbsp " . $car['vrsta_goriva'] ."</a>";
+                                                if($car['klima'] == 1) 
+                                                    $klima = "<i class='fa fa-check-circle'></i>";
+                                                    else 
+                                                    $klima = "<i class='fa fa-times-circle'></i>";
+                                                    
+                                                echo "<a href='#'> Klima"  ." $klima </a>";
+                                                echo "<a href='#'><img src = 'assets/img/car/car_gearbox.png' alt = 'dizel' style = 'width:18px;height:17px;position: relative; top: -1px;'>".$car['menjac']. "</a>";
+                                                echo "</div>";
+                                                echo "</div>";
+                                                echo "</div>";
+                                                echo "</div>";
+                                                
+                                            }
+                                        ?>
+                                       
                                     </div>
                                     <!-- PopularCars Tab Content End -->
                                 </div>
@@ -957,7 +798,6 @@
             </div>
         </div>
     </section>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -969,7 +809,8 @@
     <div class="modal-content">
       <div class="modal-header">
        
-        <h4 class="modal-title">Rezerviši automobil</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        <h4 class="modal-title">Rezerviši automobil</h4> 
+        <button type="button" class="close" data-dismiss="#myModal" data-target="#myModal">&times;</button>
       </div>
       
       <div class="modal-body">

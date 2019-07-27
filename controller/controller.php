@@ -19,7 +19,7 @@ class Controller{
           if(is_array($result)) {
              //Nije slobodan auto
              $result = "no";
-         }else{
+         }else{ 
              //Slobodan auto
              $result = "yes";
          }
@@ -37,10 +37,10 @@ class Controller{
             header("Location:index.php?msg=$msg");
         }
      }
-     public function insertAutomobil($marka,$slika) {
+     public function insertAutomobil($marka,$slika,$tip,$cena_30,$cena_16,$cena_3,$vrata,$sedista,$gorivo,$klima,$menjac) {
         $dao = new DAO();
 
-        $result = $dao->insertAutomobil($marka,$slika);
+        $result = $dao->insertAutomobil($marka,$slika,$tip,$cena_30,$cena_16,$cena_3,$vrata,$sedista,$gorivo,$klima,$menjac);
         if($result != NULL){
             $msg = "Uspesno unet automobil.";
             header("Location:dashboard.php?msg=$msg");
@@ -48,6 +48,17 @@ class Controller{
         }else{
             $msg = "Greska pri insertu u bazu.";
             header("Location:dashboard.php?msg=$msg");
+        }
+     }
+     public function deleteAutomobil($id_automobil){
+        $dao = new DAO();
+        $result = $dao->deleteAutomobil($id_automobil);
+        if($result != null){
+            $msg = "Uspesno obrisan automobil";
+            header("Location:index1.php?action=allCars&msg=$msg");
+        }else{
+            $msg = "Nije obrisan automobil";
+            header("Location:index1.php?action=allCars&msg=$msg");
         }
      }
 }

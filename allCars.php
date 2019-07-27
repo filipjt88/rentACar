@@ -1,3 +1,4 @@
+<?php if(isset($cars)){ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,16 +33,24 @@
  echo "<th>ID AUTOMOBIL</th>";
  echo "<th>MARKA</th>";
  echo "<th>SLIKA</th>";
+ echo "<th colspan = '2'>AKCIJA</th>";
 echo "</tr>";
+
 foreach($cars as $car) {
-   
+    
     echo "<tr>";
     echo "<tbody>";
     echo "<td>". $car['id_automobil']."</td><td>".$car['marka']."</td><td>".$car['slika']."</td><td>";
     echo "<td><img src='uploads/" . $car['slika'] . "' style='height:100px; width:100px;'></td>";
+    echo "<td>"."<a href='index1.php?action=delete_car&id_automobil=" . $car['id_automobil'] . "'><button>OBRISI</button></a></td>";
+    echo "<td>"."<a href='index1.php?action=update_car&id_automobil=" . $car['id_automobil'] . "'><button>IZMENI</button></a></td>";
     echo "</tr>";
 }
 echo "</tbody>";
 echo "</table>";
 echo "<button><a href='dashboard.php'>Nazad</a></button>";
+echo isset($_GET['msg']) ? $_GET['msg'] : "";
+}else{
+    header("Location:index1.php");
+}
 ?>

@@ -39,6 +39,45 @@ include 'controller/controller.php';
 <label>SLIKA AUTOMOBILA:</label>
 <input type = "file" name = "slika" autocomplete="off" class = "form-control" required>
 </div>
+<div class="form-group">
+<label>TIP AUTOMOBILA:</label>
+<input type = "text" name = "tip" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>CENA ZA 30-DANA:</label>
+<input type = "number" name = "cena_30" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>CENA ZA 16-DANA:</label>
+<input type = "number" name = "cena_16" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>CENA ZA 3-DANA:</label>
+<input type = "number" name = "cena_3" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>BROJ VRATA:</label>
+<input type = "number" name = "vrata" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>BROJ SEDISTA:</label>
+<input type = "number" name = "sedista" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>VRSTA GORIVA:</label>
+<input type = "text" name = "gorivo" autocomplete="off" class = "form-control" required>
+</div>
+<div class="form-group">
+<label>KLIMA:</label>
+<select name = "klima">
+<option value = "TRUE">YES</option>
+<option value = "FALSE">NO</option>
+</select>
+</div>
+<div class="form-group">
+<label>MENJAC:</label>
+<input type = "text" name = "menjac" autocomplete="off" class = "form-control" required>
+</div>
 <input type = "submit" value = "Unesi" class = "btn btn-success">
 <input type = "reset" value="Reset" class = "btn btn-danger">
 </form>
